@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/stylePerfil.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&display=swap" rel="stylesheet" />
+  <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+  <title>Editar Perfil</title>
+</head>
+
+<body>
+  <header class="header">
+    <a href="#">
+      <img src="imgs/logo.jpg" alt="image" class="logo" />
+    </a>
+    <h1 class="title">Pagina web de Asesorias</h1>
+    <button class="btn-mobile-nav" id="btn-mob">
+      <ion-icon class="icon--nav" name="menu-outline"></ion-icon>
+      <ion-icon class="icon--nav" name="close-outline"></ion-icon>
+    </button>
+    <!-- <div class="select">
+       <select name="opcion" id="opcion">
+          <option value>Configuracion:</option>
+          <option value="editar">Editar</option>
+          <option value="salir"><a  href="../Inicio_sesion/index_inicio_sesion.html">
+            Salir
+          </a></option>          
+        </select>
+      </div> -->
+
+    <nav class="main-nav">
+      <ul class="main-nav-list">
+        <li><a class="main-nav-link" href="perfil.html">Regresar</a></li>
+        <li><a class="main-nav-link" href="index.html">Salir</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="section-hero">
+      <div class="container grid grid--2-cols">
+        <div class="cont-img">
+          <img src="imgs/usuario.png" class="asesor-img" alt="asesor-img" />
+        </div>
+
+        <div class="asesor-datos">
+          <form class="cta-form">
+            <input class="Datos" type="text" name="texto" placeholder="Nombre del Asesor" />
+            <input class="Datos" type="text" name="texto" placeholder="Carrera o trabajo del Asesor" />
+            <input class="Datos" type="text" name="texto" placeholder="Informacion/Descripcion del Asesor" />
+            <input class="Datos" type="text" name="texto" placeholder="Materias de las que dará asesoría" />
+            <!-- <textarea
+                name="texto"
+                rows="4"
+                cols="40"
+                placeholder="Informacion/Descripcion del Asesor y de las materias que dará asesoría"
+              ></textarea> -->
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="table-section">
+      <!-- AGENDADO (DOM) -->
+      <div class="modal hidden">
+        <button class="close-modal">&times;</button>
+        <div class="modal-header">
+          <a href="#">
+            <img src="imgs/logo.jpg" alt="image" class="logo logo-modal2" />
+          </a>
+          <h1>Añadir materia</h1>
+        </div>
+        <form action="#" class="form-modal">
+          <div class="div-form-modal">
+            <label>Materia:</label>
+            <input type="text" class="Input--Materia">
+          </div>
+          <div class="div-form-modal">
+            <label>Descripcion:</label>
+            <input class="Ddescripcion Input--Descripcion" type="text">
+          </div>
+          <div class="div-form-modal">
+            <label>Lugar:</label>
+            <input type="text" class="Input--Lugar">
+          </div>
+          <div class="div-form-modal">
+            <label>Costo:</label>
+            <input type="text" class="Input--Costo">
+          </div>
+        </form>
+        <div class="btns-modal">
+          <button class="btn--agendar btn--cancelar">Cancelar</button>
+          <button class="btn--agendar btn--limpiar">Limpiar</button>
+          <button class="btn--agendar btn--confirmar">Confirmar</button>
+        </div>
+      </div>
+      <!-- <div class="overlay hidden"></div> -->
+      <div class="title">
+        <h1 class="title-table">HORARIO</h1>
+      </div>
+      <div class="calendar">
+        <div class="datos-fecha">
+          <h1>Mes/Año</h1>
+          <div class="left"><a href="#">
+              <ion-icon class="arrows" name="arrow-undo"></ion-icon>
+            </a> </div>
+          <div class="right"><a href="#">
+              <ion-icon class="arrows" name="arrow-redo"></ion-icon>
+            </a></div>
+
+        </div>
+        <div class="outer-wrap">
+          <div class="table-wrap">
+            <table class="table">
+              <thead class="thead">
+                <tr>
+                  <th>Hora</th>
+                  <th>Lunes</th>
+                  <th>Martes</th>
+                  <th>Miercoles</th>
+                  <th>Jueves</th>
+                  <th>Viernes</th>
+                  <th>Sabado</th>
+                  <th>Domingo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <!--<td>M1</td> -->
+                  <td>7:00-7:50</td>
+                  <td><button class="btn btn--form show-modal">M1</button></td>
+                  <td><button class="btn btn--form show-modal">M1</button></td>
+                  <td><button class="btn btn--form show-modal">M1</button></td>
+                  <td><button class="btn btn--form show-modal">M1</button></td>
+                  <td><button class="btn btn--form show-modal">M1</button></td>
+                  <td><button class="btn btn--form show-modal">M1</button></td>
+                  <td><button class="btn btn--form show-modal">M1</button></td>
+                </tr>
+                <tr>
+                  <!-- <td>M2</td> -->
+                  <td>7:50-8:40</td>
+                  <td><button class="btn btn--form show-modal">M2</button></td>
+                  <td><button class="btn btn--form show-modal">M2</button></td>
+                  <td><button class="btn btn--form show-modal">M2</button></td>
+                  <td><button class="btn btn--form show-modal">M2</button></td>
+                  <td><button class="btn btn--form show-modal">M2</button></td>
+                  <td><button class="btn btn--form show-modal">M2</button></td>
+                  <td><button class="btn btn--form show-modal">M2</button></td>
+                </tr>
+                <tr>
+                  <!-- <td>M3</td> -->
+                  <td>8:40-9:30</td>
+                  <td><button class="btn btn--form show-modal">M3</button></td>
+                  <td><button class="btn btn--form show-modal">M3</button></td>
+                  <td><button class="btn btn--form show-modal">M3</button></td>
+                  <td><button class="btn btn--form show-modal">M3</button></td>
+                  <td><button class="btn btn--form show-modal">M3</button></td>
+                  <td><button class="btn btn--form show-modal">M3</button></td>
+                  <td><button class="btn btn--form show-modal">M3</button></td>
+                </tr>
+                <tr>
+                  <!-- <td>M4</td> -->
+                  <td>9:30-10:20</td>
+                  <td><button class="btn btn--form show-modal">M4</button></td>
+                  <td><button class="btn btn--form show-modal">M4</button></td>
+                  <td><button class="btn btn--form show-modal">M4</button></td>
+                  <td><button class="btn btn--form show-modal">M4</button></td>
+                  <td><button class="btn btn--form show-modal">M4</button></td>
+                  <td><button class="btn btn--form show-modal">M4</button></td>
+                  <td><button class="btn btn--form show-modal">M4</button></td>
+                </tr>
+                <tr>
+                  <!-- <td>M5</td> -->
+                  <td>10:20-11:10</td>
+                  <td><button class="btn btn--form show-modal">M5</button></td>
+                  <td><button class="btn btn--form show-modal">M5</button></td>
+                  <td><button class="btn btn--form show-modal">M5</button></td>
+                  <td><button class="btn btn--form show-modal">M5</button></td>
+                  <td><button class="btn btn--form show-modal">M5</button></td>
+                  <td><button class="btn btn--form show-modal">M5</button></td>
+                  <td><button class="btn btn--form show-modal">M5</button></td>
+                </tr>
+                <tr>
+                  <!-- <td>M6</td> -->
+                  <td>11:10-12:00</td>
+                  <td><button class="btn btn--form show-modal">M6</button></td>
+                  <td><button class="btn btn--form show-modal">M6</button></td>
+                  <td><button class="btn btn--form show-modal">M6</button></td>
+                  <td><button class="btn btn--form show-modal">M6</button></td>
+                  <td><button class="btn btn--form show-modal">M6</button></td>
+                  <td><button class="btn btn--form show-modal">M6</button></td>
+                  <td><button class="btn btn--form show-modal">M6</button></td>
+                <tr>
+                  <!-- <td>V1</td> -->
+                  <td>12:00-12:50</td>
+                  <td><button class="btn btn--form show-modal">V1</button></td>
+                  <td><button class="btn btn--form show-modal">V1</button></td>
+                  <td><button class="btn btn--form show-modal">V1</button></td>
+                  <td><button class="btn btn--form show-modal">V1</button></td>
+                  <td><button class="btn btn--form show-modal">V1</button></td>
+                  <td><button class="btn btn--form show-modal">V1</button></td>
+                  <td><button class="btn btn--form show-modal">V1</button></td>
+                </tr>
+                <tr>
+                  <!-- <td>V2</td> -->
+                  <td>12:50-13:40</td>
+                  <td><button class="btn btn--form show-modal">V2</button></td>
+                  <td><button class="btn btn--form show-modal">V2</button></td>
+                  <td><button class="btn btn--form show-modal">V2</button></td>
+                  <td><button class="btn btn--form show-modal">V2</button></td>
+                  <td><button class="btn btn--form show-modal">V2</button></td>
+                  <td><button class="btn btn--form show-modal">V2</button></td>
+                  <td><button class="btn btn--form show-modal">V2</button></td>
+                </tr>
+                <tr>
+                  <!-- <td>V3</td> -->
+                  <td>13:40-14:30</td>
+                  <td><button class="btn btn--form show-modal">V3</button></td>
+                  <td><button class="btn btn--form show-modal">V3</button></td>
+                  <td><button class="btn btn--form show-modal">V3</button></td>
+                  <td><button class="btn btn--form show-modal">V3</button></td>
+                  <td><button class="btn btn--form show-modal">V3</button></td>
+                  <td><button class="btn btn--form show-modal">V3</button></td>
+                  <td><button class="btn btn--form show-modal">V3</button></td>
+                </tr>
+                <tr>
+                  <!-- <td>V4</td> -->
+                  <td>14:30-15:20</td>
+                  <td><button class="btn btn--form show-modal">V4</button></td>
+                  <td><button class="btn btn--form show-modal">V4</button></td>
+                  <td><button class="btn btn--form show-modal">V4</button></td>
+                  <td><button class="btn btn--form show-modal">V4</button></td>
+                  <td><button class="btn btn--form show-modal">V4</button></td>
+                  <td><button class="btn btn--form show-modal">V4</button></td>
+                  <td><button class="btn btn--form show-modal">V4</button></td>
+                </tr>
+                <tr>
+                  <!-- <td>V5</td> -->
+                  <td>15:20-16:10</td>
+                  <td><button class="btn btn--form show-modal">V5</button></td>
+                  <td><button class="btn btn--form show-modal">V5</button></td>
+                  <td><button class="btn btn--form show-modal">V5</button></td>
+                  <td><button class="btn btn--form show-modal">V5</button></td>
+                  <td><button class="btn btn--form show-modal">V5</button></td>
+                  <td><button class="btn btn--form show-modal">V5</button></td>
+                  <td><button class="btn btn--form show-modal">V5</button></td>
+                </tr>
+                <tr>
+                  <!-- <td>V6</td> -->
+                  <td>16:10-17:00</td>
+                  <td><button class="btn btn--form show-modal">V6</button></td>
+                  <td><button class="btn btn--form show-modal">V6</button></td>
+                  <td><button class="btn btn--form show-modal">V6</button></td>
+                  <td><button class="btn btn--form show-modal">V6</button></td>
+                  <td><button class="btn btn--form show-modal">V6</button></td>
+                  <td><button class="btn btn--form show-modal">V6</button></td>
+                  <td><button class="btn btn--form show-modal">V6</button></td>
+                </tr>
+                <tr>
+                  <!-- <td>N1</td> -->
+                  <td>17:00-17:45</td>
+                  <td><button class="btn btn--form show-modal">N1</button></td>
+                  <td><button class="btn btn--form show-modal">N1</button></td>
+                  <td><button class="btn btn--form show-modal">N1</button></td>
+                  <td><button class="btn btn--form show-modal">N1</button></td>
+                  <td><button class="btn btn--form show-modal">N1</button></td>
+                  <td><button class="btn btn--form show-modal">N1</button></td>
+                  <td><button class="btn btn--form show-modal">N1</button></td>
+                </tr>
+                <tr>
+                  <!-- <td>N2</td> -->
+                  <td>17:45-18:30</td>
+                  <td><button class="btn btn--form show-modal">N2</button></td>
+                  <td><button class="btn btn--form show-modal">N2</button></td>
+                  <td><button class="btn btn--form show-modal">N2</button></td>
+                  <td><button class="btn btn--form show-modal">N2</button></td>
+                  <td><button class="btn btn--form show-modal">N2</button></td>
+                  <td><button class="btn btn--form show-modal">N2</button></td>
+                  <td><button class="btn btn--form show-modal">N2</button></td>
+                </tr>
+                <tr>
+                  <!-- <td>N3</td> -->
+                  <td>18:30-19:15</td>
+                  <td><button class="btn btn--form show-modal">N3</button></td>
+                  <td><button class="btn btn--form show-modal">N3</button></td>
+                  <td><button class="btn btn--form show-modal">N3</button></td>
+                  <td><button class="btn btn--form show-modal">N3</button></td>
+                  <td><button class="btn btn--form show-modal">N3</button></td>
+                  <td><button class="btn btn--form show-modal">N3</button></td>
+                  <td><button class="btn btn--form show-modal">N3</button></td>
+                </tr>
+                <tr>
+                  <!-- <td>N4</td> -->
+                  <td>19:15-20:00</td>
+                  <td><button class="btn btn--form show-modal">N4</button></td>
+                  <td><button class="btn btn--form show-modal">N4</button></td>
+                  <td><button class="btn btn--form show-modal">N4</button></td>
+                  <td><button class="btn btn--form show-modal">N4</button></td>
+                  <td><button class="btn btn--form show-modal">N4</button></td>
+                  <td><button class="btn btn--form show-modal">N4</button></td>
+                  <td><button class="btn btn--form show-modal">N4</button></td>
+                </tr>
+                <tr>
+                  <!-- <td>N5</td> -->
+                  <td>20:00-20:45</td>
+                  <td><button class="btn btn--form show-modal">N5</button></td>
+                  <td><button class="btn btn--form show-modal">N5</button></td>
+                  <td><button class="btn btn--form show-modal">N5</button></td>
+                  <td><button class="btn btn--form show-modal">N5</button></td>
+                  <td><button class="btn btn--form show-modal">N5</button></td>
+                  <td><button class="btn btn--form show-modal">N5</button></td>
+                  <td><button class="btn btn--form show-modal">N5</button></td>
+                </tr>
+                <!-- <td>N6</td> -->
+                <td>20:45-21:30</td>
+                <td><button class="btn btn--form show-modal">N6</button></td>
+                <td><button class="btn btn--form show-modal">N6</button></td>
+                <td><button class="btn btn--form show-modal">N6</button></td>
+                <td><button class="btn btn--form show-modal">N6</button></td>
+                <td><button class="btn btn--form show-modal">N6</button></td>
+                <td><button class="btn btn--form show-modal">N6</button></td>
+                <td><button class="btn btn--form show-modal">N6</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="estados">
+          <li class="list-item">
+            <ion-icon class="list-icon" name="square"></ion-icon>
+            <span>Asesoria Disponible</span>
+          </li>
+          <li class="list-item">
+            <ion-icon class="list-icon list--icon3" name="square"></ion-icon>
+            <span>Asesoria No Disponible</span>
+        </div>
+
+        <div class="verificaciones">
+          <div class="inputs">
+            <label for="box" class="checkbox">
+              <input class="input-check" id="box" type="checkbox" name="casilla">
+              <div class="verificacion-text"></div>
+              <p class="verif-text">Repetir el horario cada semana</p>
+            </label>
+            <label for="box2" class="checkbox">
+              <input class="input-check" id="box2" type="checkbox" name="casilla">
+              <div class="verificacion-text"></div>
+              <p class="verif-text">Modificar las asesorias ya agenadas, pero se cancelaran si es que se modifican y se
+                guardan los cambios</p>
+            </label>
+          </div>
+        </div>
+        <div class="btn">
+          <a href="#" class="btn btn--full">Guardar cambios</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="js/script.js"></script>
+  <script src="js/script2.js"></script>
+</body>
+
+
+</html>

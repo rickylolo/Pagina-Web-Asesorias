@@ -1,4 +1,3 @@
-// console.log("prueba");
 "use strict";
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
@@ -56,5 +55,6 @@ document.addEventListener("keydown", function (e) {
     closeModal();
   }
 });
+
 
 
