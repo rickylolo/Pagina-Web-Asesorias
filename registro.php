@@ -1,3 +1,10 @@
+<?php 
+include_once 'php/userAPI.php';
+$api = new userAPI;
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
