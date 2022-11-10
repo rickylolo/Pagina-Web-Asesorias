@@ -7,54 +7,39 @@ include_once 'queryUser.php';
 
 class userAPI
 {
-    function seleccionLoggeo(string $username, string $password)
+    function seleccionLoggeo(string $matricula, string $password)
     {
 
         $user = new User();
         $arrUsers = array();
         $arrUsers["Datos"] = array();
 
-        $res = $user->log_in($username, $password);
+        $res = $user->log_in($matricula, $password);
 
         if ($res) { // Entra si hay información
             session_start();
             while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
 
                 $obj = array(
-                    "id" => $row['id'],
-                    "tipo_Usuario" => $row['user_Type']
+                    "Usuario_id" => $row['Usuario_id']
                 );
-                $_SESSION['id'] = $obj["id"];
-                $_SESSION['userType'] = $obj["tipo_Usuario"];
+                $_SESSION['Usuario_id'] = $obj["Usuario_id"];
                 array_push($arrUsers["Datos"], $obj);
             }
             if (!$res->fetch(PDO::FETCH_ASSOC)) {
-                //Normal user
-                if ($_SESSION['userType'] == 1) {
-                    header("Location:../index.php");
-                    exit();
-                }
-                //reporter
-                if ($_SESSION['userType'] == 2) {
-                    header("Location:../reporterPage.php");
-                    exit();
-                }
-                //editor
-                if ($_SESSION['userType'] == 3) {
-                    header("Location:../editorPage.php");
-                    exit();
-                }
+                header("Location:../perfil.php");
+                exit();
             }
         } else {
-            header("Location:../index.php");
+            header("Location:../index.html");
             exit();
         }
     }
 
-    function insertarUser($username, $password, $names, $lastName, $email, $telefono, $user_Type, $user_IMG)
+    function insertarUser($nombres, $apellidos, $fechaNacimiento, $carrera, $semestre, $matricula, $pass)
     {
         $user = new User();
-        $user->insertUser($username, $password, $names, $lastName, $email, $telefono, $user_Type, $user_IMG);
+        $user->insertUser($nombres, $apellidos, $fechaNacimiento, $carrera, $semestre, $matricula, $pass);
     }
 
     function actualizarUser($idUser, $username, $password, $names, $lastName, $email, $telefono, $user_Type, $user_IMG)
@@ -79,20 +64,8 @@ if (isset($_POST['funcion'])) {
     $funcion = $_POST['funcion'];
     switch ($funcion) {
         case "registrarUsuario":
-            $tipoArchivo = $_FILES['file']['type'];
-            $nombreArchivo = $_FILES['file']['name'];
-            $tamanoArchivo = $_FILES['file']['size'];
-            $imagenSubida = fopen($_FILES['file']['tmp_name'], 'r');
-            $binariosImagen = fread($imagenSubida, $tamanoArchivo);
-            session_start();
-            $tipoUsuario = 1;
-            if ($_SESSION != NULL) {
-                if ($_SESSION['userType'] == 3) {
-                    $tipoUsuario = 2;
-                }
-            }
             $var = new userAPI();
-            $var->insertarUser($_POST['usuario'], $_POST['contrasenia'], $_POST['names'], $_POST['lastName'], $_POST['email'], $_POST['telefono'], $tipoUsuario, $binariosImagen);
+            $var->insertarUser($_POST['nombres'], $_POST['apellidos'], $_POST['fechaNacimiento'], $_POST['carrera'], $_POST['semestre'], $_POST['matricula'], $_POST['password']);
             break;
         case "actualizarUser":
             $binariosImagen1 = '';
@@ -104,11 +77,9 @@ if (isset($_POST['funcion'])) {
                 $binariosImagen1 = fread($imagenSubida1, $tamanoArchivo1);
             }
             session_start();
-            $id = $_SESSION['id'];
-            $tipoUser = $_SESSION['userType'];
-
+            $id = $_SESSION['Usuario_id'];
             $var = new userAPI();
-            $var->actualizarUser($id, $_POST['E_usuario'], $_POST['E_contrasenia'], $_POST['E_names'], $_POST['E_lastName'], $_POST['E_email'], $_POST['E_telefono'], $tipoUser, $binariosImagen1);
+            $var->actualizarUser($id, $_POST['nombres'], $_POST['apellidos'], $_POST['fechaNacimiento'], $_POST['carrera'], $_POST['semestre'], $_POST['matricula'], $_POST['contraseña'], $binariosImagen1);
             break;
     }
 }
@@ -119,9 +90,8 @@ if (isset($_GET['logout'])) {
     $var->cerrarSesion();
 }
 
-
 // Buscar User
-if (isset($_POST['username']) && isset($_POST['password'])) {
+if (isset($_POST['matricula']) && isset($_POST['password'])) {
     $var = new userAPI();
-    $var->seleccionLoggeo($_POST['username'], $_POST['password']);
+    $var->seleccionLoggeo($_POST['matricula'], $_POST['password']);
 }

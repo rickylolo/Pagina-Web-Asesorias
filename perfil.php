@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="js/jquery-3.6.0.js"></script>
+  <script src="js/perfil.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&display=swap" rel="stylesheet" />
   <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
@@ -16,29 +22,31 @@
 </head>
 
 <body>
+  <?php
+  if ($_SESSION != NULL) {
+    echo '<input type="hidden" value="' . $_SESSION['Usuario_id'] . '" id="miUserIdActual">';
+  }
+  ?>
   <header class="header">
-    <a href="#">
-      <img src="imgs/logo.jpg" alt="image" class="logo" />
-    </a>
+    <?php
+    if ($_SESSION == NULL) {
+      echo '<img src="imgs/logo.jpg" alt="image" class="logo">';
+    }
+    if ($_SESSION != NULL) {
+      echo '<img src="" alt="image" class="logo" id="pfp">';
+    }
+    ?>
+
+
     <h1 class="title">Pagina web de Asesorias</h1>
     <button class="btn-mobile-nav" id="btn-mob">
       <ion-icon class="icon--nav" name="menu-outline"></ion-icon>
       <ion-icon class="icon--nav" name="close-outline"></ion-icon>
     </button>
-    <!-- <div class="select">
-       <select name="opcion" id="opcion">
-          <option value>Configuracion:</option>
-          <option value="editar">Editar</option>
-          <option value="salir"><a  href="../Inicio_sesion/index_inicio_sesion.html">
-            Salir
-          </a></option>          
-        </select>
-      </div> -->
-
     <nav class="main-nav">
       <ul class="main-nav-list">
         <li><a class="main-nav-link" href="editarPerfil.html">Editar</a></li>
-        <li><a class="main-nav-link" href="index.html">Salir</a></li>
+        <li><a class="main-nav-link" href="perfil.php?logout=true">Salir</a></li>
       </ul>
     </nav>
   </header>
@@ -63,12 +71,7 @@
             <p class="Datos">
               Materias de las que dará asesoría
             </p>
-            <!-- <textarea
-                name="texto"
-                rows="4"
-                cols="40"
-                placeholder="Informacion/Descripcion del Asesor y de las materias que dará asesoría"
-              ></textarea> -->
+
           </form>
         </div>
       </div>
