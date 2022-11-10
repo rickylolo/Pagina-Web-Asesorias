@@ -19,6 +19,7 @@ body {
 }
 .image {
   margin-left: 20rem;
+  
 }
 .img-oso {
   width: 105%;
@@ -32,8 +33,13 @@ body {
   align-items: center;
   height: 22rem;
   padding: 0 4.8rem;
-  font-size: 5rem;
   border: 1px solid rgba(0, 0, 0, 0.26);
+}
+
+.header h1{
+  font-size: 10rem;
+  font-weight: bold;
+  color: black;
 }
 
 .section-hero {
