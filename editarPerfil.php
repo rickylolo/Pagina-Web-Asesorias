@@ -1,3 +1,9 @@
+<?php
+include_once 'php/userAPI.php';
+$api = new userAPI;
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,8 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&display=swap" rel="stylesheet" />
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
   <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
   <title>Editar Perfil</title>
@@ -30,78 +35,83 @@
       <ion-icon class="icon--nav" name="menu-outline"></ion-icon>
       <ion-icon class="icon--nav" name="close-outline"></ion-icon>
     </button>
-    <!-- <div class="select">
-       <select name="opcion" id="opcion">
-          <option value>Configuracion:</option>
-          <option value="editar">Editar</option>
-          <option value="salir"><a  href="../Inicio_sesion/index_inicio_sesion.html">
-            Salir
-          </a></option>          
-        </select>
-      </div> -->
+    <?php
+    if ($_SESSION != NULL) {
+      echo '<input type="hidden" value="' . $_SESSION['Usuario_id'] . '" id="miUserIdActual">';
+    }
+    ?>
 
     <nav class="main-nav">
       <ul class="main-nav-list">
-        <li><a class="main-nav-link" href="perfil.html">Regresar</a></li>
-        <li><a class="main-nav-link" href="index.html">Salir</a></li>
+        <li><a class="main-nav-link" href="perfil.php">Regresar</a></li>
+        <li><a class="main-nav-link" href="index.php?logout=true">Salir</a></li>
       </ul>
     </nav>
   </header>
   <main>
     <section class="section-hero">
-      <div class="container">
-        <div class="row">
-          <div class="col-3 asesor-img">
-            <div class="row">
-              <div class="col d-flex justify-content-end">
-                <h1><i class="bi bi-pencil-fill"></i></h1>
+      <div class="container" id="miSeccionPerfil">
+        <form class="cta-form" method="POST">
+
+          <div class="row">
+            <div class="col-3 asesor-img">
+              <div class="row">
+                <div class="col d-flex justify-content-end">
+                  <button class="saveChanges btn-outline-dark">
+                    <h1><i class="bi bi-pencil-fill"></i></h1>
+                  </button>
+                </div>
+                <div class="w-100"></div>
+                <div class="col d-flex justify-content-center align-content-center">
+
+                  <div class="image-upload">
+                    <label for="file-input">
+                      <img class="justify-content-center" src="" id="img-foto" alt="asesor-img" width="250px" height="250px">
+                    </label>
+                    <input id="file-input" onchange="vista_preliminar(event)" name="foto" type="file" accept="image/jpeg">
+                  </div>
+
+                </div>
+
               </div>
-              <div class="w-100"></div>
-              <div class="col d-flex justify-content-center align-content-center">
-                <img class="justify-content-center" src="imgs/usuario.png" alt="asesor-img">
+
+
+            </div>
+            <div class="col-9">
+              <div class="asesor-datos">
+                <h1>Nombre del asesor</h1>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Nombre del Asesor" name="nameAsesor" id="nameAsesor" aria-label="Nombre del Asesor" aria-describedby="button-addon2">
+                  <button class="saveChanges btn btn-outline-dark" id="button-addon2">
+                    <h1><i class="bi bi-pencil-fill"></i></h1>
+                  </button>
+                </div>
+                <h1>Carrera o trabajo del Asesor</h1>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Carrera o trabajo del Asesor" name="carreraAsesor" id="carreraAsesor" aria-label="Carrera o trabajo del Asesor" aria-describedby="button-addon2">
+                  <button class="saveChanges btn btn-outline-dark" id="button-addon2">
+                    <h1><i class="bi bi-pencil-fill"></i></h1>
+                  </button>
+                </div>
+                <h1>Descripcion del asesor</h1>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Informacion/Descripcion del Asesor" name="infoAsesor" id="infoAsesor" aria-label="Informacion/Descripcion del Asesor" aria-describedby="button-addon2">
+                  <button class="saveChanges btn btn-outline-dark" id="button-addon2">
+                    <h1><i class="bi bi-pencil-fill"></i></h1>
+                  </button>
+                </div>
+                <h1>Materias de las que dará asesoría</h1>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Materias de las que dará asesoría" name="materiaAsesor" id="materiaAsesor" aria-label="Materias de las que dará asesoría" aria-describedby="button-addon2">
+                  <button class="saveChanges btn btn-outline-dark" id="button-addon2">
+                    <h1><i class="bi bi-pencil-fill"></i></h1>
+                  </button>
+                </div>
+
               </div>
             </div>
-
-
           </div>
-          <div class="col-9">
-            <div class="asesor-datos">
-              <form class="cta-form">
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Nombre del Asesor" aria-label="Nombre del Asesor"
-                    aria-describedby="button-addon2">
-                  <button class="btn btn-outline-dark" type="button" id="button-addon2">
-                    <h1><i class="bi bi-pencil-fill"></i></h1>
-                  </button>
-                </div>
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Carrera o trabajo del Asesor"
-                    aria-label="Carrera o trabajo del Asesor" aria-describedby="button-addon2">
-                  <button class="btn btn-outline-dark" type="button" id="button-addon2">
-                    <h1><i class="bi bi-pencil-fill"></i></h1>
-                  </button>
-                </div>
-
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Informacion/Descripcion del Asesor"
-                    aria-label="Informacion/Descripcion del Asesor" aria-describedby="button-addon2">
-                  <button class="btn btn-outline-dark" type="button" id="button-addon2">
-                    <h1><i class="bi bi-pencil-fill"></i></h1>
-                  </button>
-                </div>
-
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Materias de las que dará asesoría"
-                    aria-label="Materias de las que dará asesoría" aria-describedby="button-addon2">
-                  <button class="btn btn-outline-dark" type="button" id="button-addon2">
-                    <h1><i class="bi bi-pencil-fill"></i></h1>
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-
+        </form>
       </div>
 
     </section>
@@ -411,12 +421,9 @@
   </main>
   <script src="js/script.js"></script>
   <script src="js/script2.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-    crossorigin="anonymous"></script>
+  <script src="js/editarPerfil.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>
 
 

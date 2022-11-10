@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +13,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="js/jquery-3.6.0.js"></script>
+  <script src="js/perfil.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&display=swap" rel="stylesheet" />
   <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
@@ -16,62 +23,72 @@
 </head>
 
 <body>
+  <?php
+  if ($_SESSION != NULL) {
+    echo '<input type="hidden" value="' . $_SESSION['Usuario_id'] . '" id="miUserIdActual">';
+  }
+  ?>
   <header class="header">
-    <a href="#">
-      <img src="imgs/logo.jpg" alt="image" class="logo" />
-    </a>
+    <img src="imgs/logo.jpg" alt="image" class="logo">
+
+
+
     <h1 class="title">Pagina web de Asesorias</h1>
     <button class="btn-mobile-nav" id="btn-mob">
       <ion-icon class="icon--nav" name="menu-outline"></ion-icon>
       <ion-icon class="icon--nav" name="close-outline"></ion-icon>
     </button>
-    <!-- <div class="select">
-       <select name="opcion" id="opcion">
-          <option value>Configuracion:</option>
-          <option value="editar">Editar</option>
-          <option value="salir"><a  href="../Inicio_sesion/index_inicio_sesion.html">
-            Salir
-          </a></option>          
-        </select>
-      </div> -->
-
     <nav class="main-nav">
       <ul class="main-nav-list">
-        <li><a class="main-nav-link" href="editarPerfil.html">Editar</a></li>
-        <li><a class="main-nav-link" href="index.html">Salir</a></li>
+        <li><a class="main-nav-link" href="editarPerfil.php">Editar</a></li>
+        <li><a class="main-nav-link" href="index.php?logout=true">Salir</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <section class="section-hero">
-      <div class="container grid grid--2-cols">
-        <div class="cont-img">
-          <img src="imgs/usuario.png" class="asesor-img" alt="asesor-img" />
-        </div>
 
-        <div class="asesor-datos">
-          <form class="cta-form">
-            <p class="Datos">
-              Nombre del Asesor
-            </p>
-            <p class="Datos">
-              Carrera o trabajo del Asesor
-            </p>
-            <p class="Datos">
-              Informacion/Descripcion del Asesor y de las materias que dará asesoría
-            </p>
-            <p class="Datos">
-              Materias de las que dará asesoría
-            </p>
-            <!-- <textarea
-                name="texto"
-                rows="4"
-                cols="40"
-                placeholder="Informacion/Descripcion del Asesor y de las materias que dará asesoría"
-              ></textarea> -->
-          </form>
-        </div>
+
+    <section class="section-hero">
+      <div class="container" id="miSeccionPerfil">
+        <form class="cta-form" method="POST">
+
+          <div class="row">
+            <div class="col-3 asesor-img m-0 row justify-content-center align-items-center">
+
+              <div class="col-auto">
+                <img src="" id="img-foto" alt="asesor-img" width="250px" height="250px">
+              </div>
+
+
+            </div>
+            <div class="col-9">
+
+              <h1>Nombre del asesor</h1>
+
+              <input type="text" class="form-control" placeholder="Nombre del Asesor" name="nameAsesor" id="nameAsesor" aria-label="Nombre del Asesor" aria-describedby="button-addon2" readonly>
+
+              <h1>Carrera o trabajo del Asesor</h1>
+
+              <input type="text" class="form-control" placeholder="Carrera o trabajo del Asesor" name="carreraAsesor" id="carreraAsesor" aria-label="Carrera o trabajo del Asesor" aria-describedby="button-addon2" readonly>
+
+
+              <h1>Descripcion del asesor</h1>
+
+              <input type="text" class="form-control" placeholder="Informacion/Descripcion del Asesor" name="infoAsesor" id="infoAsesor" aria-label="Informacion/Descripcion del Asesor" aria-describedby="button-addon2" readonly>
+
+
+              <h1>Materias de las que dará asesoría</h1>
+
+              <input type="text" class="form-control" placeholder="Materias de las que dará asesoría" name="materiaAsesor" id="materiaAsesor" aria-label="Materias de las que dará asesoría" aria-describedby="button-addon2" readonly>
+
+
+
+
+            </div>
+          </div>
+        </form>
       </div>
+
     </section>
     <section class="table-section">
       <div class="title">
@@ -319,5 +336,7 @@
   </main>
 </body>
 <script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 
 </html>

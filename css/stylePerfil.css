@@ -588,3 +588,7 @@ p {
   background-color: #000000;
   color: white;
 }
+.image-upload input
+{
+    display: none;
+}

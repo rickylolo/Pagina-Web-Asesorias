@@ -11,7 +11,7 @@ class DB
     public function __construct()
     {
         $this->host = 'localhost';
-        $this->db = 'PWCI_DB'; // Nombre de la base de datos
+        $this->db = 'PROYECTOASESORIAS'; // Nombre de la base de datos
         $this->user = 'root'; //Usuario de MySQL
         $this->password = 'zL6MMqF51868520'; // Contraseña de MySQL
         $this->charset = 'utf8mb4'; // Juego de Caracteres
