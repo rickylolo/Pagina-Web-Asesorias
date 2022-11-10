@@ -24,41 +24,29 @@
     </div>
 
     <form class="cta-form" method="post" action="php/userAPI.php">
-      <div>
+  
         <label>Nombre(s)</label>
         <input type="text" placeholder="Nombres(s)" name="nombre" id="nombre" required>
-      </div>
 
-      <div>
+
         <label>Apellidos</label>
         <input type="text" placeholder="Apellidos" name="apellidos" id="apellidos" required>
-      </div>
-
-      <div>
+ 
         <label>Fecha de Nacimiento</label>
         <input type="date" placeholder="Fecha de Nacimiento" name="nacimiento" id="nacimiento" required>
-      </div>
 
-      <div>
         <label>Carrera</label>
         <input type="text" placeholder="Carrera" name="carrera" id="carrera" required>
-      </div>
 
-      <div>
         <label>Semestre</label>
         <input type="text" placeholder="Semestre" name="semestre" id="semestre" required>
-      </div>
-
-      <div>
+ 
         <label>Matricula</label>
         <input type="text" placeholder="Matricula" name="matricula_register" id="matricula_register" required>
-      </div>
-
-
-      <div>
+ 
         <label>Contraseña</label>
         <input type="password" placeholder="Contraseña" name="password_register" id="password_register" required>
-      </div>
+   
 
       <button type="submit" id="ButtonRegistroUsuario" class="btn btn--form">Registrarse</button>
       <button type="button" id="LimpiarCampos" class="btn btn--form">Borrar</button>
