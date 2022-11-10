@@ -30,7 +30,7 @@ body {
   /*Espacios (paddings) y (alturas)*/
   padding: 5rem 4.8rem;
   background-color: hwb(153 0% 62% / 0.87);
-  border-bottom: 3px rgba(0, 255, 76, 0.514) solid;
+  border-bottom: 3px rgba(0, 139, 42, 0.514) solid;
   position: relative;
 }
 
@@ -75,21 +75,16 @@ body {
 .section-hero {
   background-color: rgba(175, 166, 166, 0.24);
   padding: 4.8rem 0 9.6rem 0;
-  height: 65rem;
+  height: 50rem;
 }
 
 .asesor-img {
-  height: 25rem;
-  border: 3px solid rgba(37, 10, 10, 0.185);
-  justify-content: center;
+  height: 35rem;
+  border: 2px solid rgba(37, 10, 10, 0.185);
   border-radius: 20px;
+
 }
 
-.container {
-  max-width: 120rem;
-  padding: 0 3.2rem;
-  margin: 11rem auto;
-}
 
 .grid {
   display: grid;
@@ -134,9 +129,15 @@ body {
   height: 9rem;
 }
 
-/* .cont-img {
-  margin-left: 15rem;
-} */
+ .cont-img {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+} 
+
+
+
+
 
 /*****TABLE********/
 .table-section {
