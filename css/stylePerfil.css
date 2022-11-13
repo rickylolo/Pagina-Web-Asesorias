@@ -535,3 +535,7 @@ p {
 #fullTraffic{
   color: #ff0000;
 }
+.image-upload input
+{
+    display: none;
+}
