@@ -28,17 +28,17 @@
             }
       
             if(Cal_AñoActual == JSON_Año && Cal_MesActual == JSON_Mes){
-            if(items[i].totalHoras >= 1 && items[i].totalHoras <= 6){
+            if(items[i].totalHoras >= 1 && items[i].totalHoras <= 10){
                 $(".calendar__item").filter(function() {
                     return $(this).text() === JSON_Dia;
                 }).css( "background-color", "#17ff02" );
             }
-            if(items[i].totalHoras >= 7 && items[i].totalHoras <= 12){
+            if(items[i].totalHoras >= 11 && items[i].totalHoras <= 17){
                 $(".calendar__item").filter(function() {
                     return $(this).text() === JSON_Dia;
                 }).css( "background-color", "#ff9900" );
             }
-            if(items[i].totalHoras >= 13 && items[i].totalHoras <= 18){
+            if(items[i].totalHoras == 18){
                 $(".calendar__item").filter(function() {
                     return $(this).text() === JSON_Dia;
                 }).css( "background-color", "#ff0000" );

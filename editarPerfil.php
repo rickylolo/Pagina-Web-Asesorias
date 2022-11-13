@@ -166,24 +166,6 @@ session_start();
               <div class="col-3 list-item"><i class="bi bi-square-fill" id="fullTraffic"></i>Carga Pesada</div>
             </div>
           </div>
-
-        </div>
-        <div class="verificaciones">
-          <div class="inputs">
-            <label for="box" class="checkbox">
-              <input class="input-check" id="box" type="checkbox" name="casilla">
-              <div class="verificacion-text"></div>
-              <p class="verif-text">Repetir el horario cada semana</p>
-            </label>
-            <label for="box2" class="checkbox">
-              <input class="input-check" id="box2" type="checkbox" name="casilla">
-              <div class="verificacion-text"></div>
-              <p class="verif-text">Modificar las asesorias ya agenadas, pero se cancelaran si es que se modifican y se guardan los cambios</p>
-            </label>
-          </div>
-        </div>
-        <div class="btn">
-          <a href="#" class="btn btn--full">Guardar cambios</a>
         </div>
     </section>
   </div>
