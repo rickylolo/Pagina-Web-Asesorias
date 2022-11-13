@@ -1,0 +1,75 @@
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box; }
+  
+
+  
+  .title {
+    text-align: center;
+    }
+  
+
+    #miCalendario{
+padding-left: 5rem;
+padding-right: 5rem;
+    }
+
+  .calendar {
+    width: 80%;
+    max-width: 35rem;
+
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: .25rem 0; }
+    .calendar__info {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 0 1rem;
+      font-size: 2.7rem;
+      font-weight: bolder;
+      color:white;
+      text-transform: uppercase; }
+    .calendar__prev, .calendar__next {
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 3.5rem; }
+    .calendar__prev {
+      margin-right: auto; }
+    .calendar__next {
+      margin-left: auto; }
+      .calendar__week{
+        font-size: 2.75rem;
+        height: 95%;
+        font-weight: bolder;
+        background-color: rgba(63, 61, 58, 0.815);
+        color: white;
+        border-radius: 1.5rem;
+        margin-top: 0.25em;
+        margin-bottom: 0.25em;
+      }
+    .calendar__week, .calendar__dates {
+      display: grid;
+      font-weight: bolder;
+      font-size: 1.5em;
+      grid-template-columns: repeat(7, 1fr);
+      grid-gap: 2px; }
+    .calendar__month, .calendar__year {
+      padding: .5em 1em; }
+    .calendar__item {
+      border: #ffffff;
+      font-weight: bold;
+      text-align: center;
+      line-height: 3; 
+      border-radius: 2.5rem;
+      height: 100%;
+      width: 97%;
+    
+    }
+  
+    .calendar__last-days {
+      opacity: .3; }
+  
