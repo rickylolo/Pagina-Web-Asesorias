@@ -21,32 +21,38 @@ session_start();
   <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&display=swap" rel="stylesheet" />
   <link href="css/bootstrap.min.css" rel="stylesheet">
 
-  <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
   <title>Editar Perfil</title>
 </head>
 
 <body>
   <div class="full-height mx-auto">
     <header class="header">
-      <a href="#">
-        <img src="imgs/logo.jpg" alt="image" class="logo" />
-      </a>
+      <img src="imgs/logo.jpg" alt="image" class="logo" />
+
       <h1 class="title">Pagina web de Asesorias</h1>
-      <button class="btn-mobile-nav" id="btn-mob">
-        <ion-icon class="icon--nav" name="menu-outline"></ion-icon>
-        <ion-icon class="icon--nav" name="close-outline"></ion-icon>
-      </button>
+
       <?php
       if ($_SESSION != NULL) {
         echo '<input type="hidden" value="' . $_SESSION['Usuario_id'] . '" id="miUserIdActual">';
       }
       ?>
-
-      <nav class="main-nav">
-        <ul class="main-nav-list">
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-lg" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <h1><i class="bi bi-list"></i></h1>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li><a class="main-nav-link" href="perfil.php">Regresar</a></li>
           <li><a class="main-nav-link" href="index.php?logout=true">Salir</a></li>
+        </ul>
+      </div>
+
+      <button class="btn-mobile-nav" id="btn-mob">
+        <ion-icon class="icon--nav" name="menu-outline"></ion-icon>
+        <ion-icon class="icon--nav" name="close-outline"></ion-icon>
+      </button>
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+
         </ul>
       </nav>
     </header>
