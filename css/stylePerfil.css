@@ -5,16 +5,13 @@
 }
 
 html {
-  height: 100%;
+  /* font-size: 10px; */
+
+  /* 10px / 16px = 0.625 = 62.5% */
   font-size: 62.5%;
 }
 
-.full-height {
-  height: 100%;
-}
-
 body {
-  height: 100%;
   font-family: "Rubik", sans-serif;
   line-height: 1;
   font-weight: 400;
@@ -29,10 +26,9 @@ body {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 15rem;
+  height: 25rem;
   /*Espacios (paddings) y (alturas)*/
   padding: 5rem 4.8rem;
-  padding-left: 25rem;
   background-color: hwb(153 0% 62% / 0.87);
   border-bottom: 3px rgba(0, 255, 76, 0.514) solid;
   position: relative;
@@ -79,18 +75,13 @@ body {
 .section-hero {
   background-color: rgba(175, 166, 166, 0.24);
   padding: 4.8rem 0 9.6rem 0;
-  height: 100%;
+  height: 50rem;
 }
 
 .asesor-img {
   height: 35rem;
   border: 2px solid rgba(37, 10, 10, 0.185);
   border-radius: 20px;
-
-}
-.asesor-img  img{
-
-  border-radius: 2.5em;
 
 }
 
@@ -150,9 +141,8 @@ body {
 
 /*****TABLE********/
 .table-section {
- padding-top: 2.3rem;
-
-  height: 100%;
+  padding: 4.8rem 0 9.6rem 0;
+  height: 93rem;
   background-color: rgba(15, 128, 0, 0.384);
   position: relative;
 }
@@ -165,25 +155,10 @@ body {
   color: rgb(0, 0, 0);
   border: 3px hwb(153 4% 88% / 0.87) solid;
   width: 40%;
-  margin-bottom: 1.5rem;
+  margin-bottom: 5rem;
   border-radius: 9px;
   background-color: hwb(153 0% 62% / 0.87);
 }
-
-
-.modal-title{
-  font-weight: bolder;
-  font-size: 3.5rem;
-}
-
-.modalTexto {
-  padding-top: 0.25rem;
-  padding-bottom: 0.1rem;
-  padding-left: 1.2rem;
-  font-weight: bold;
-  font-size: 1.0rem;
-}
-
 
 .datos-fecha {
   display: flex;
@@ -229,7 +204,6 @@ td {
   padding: 1rem;
   border: 5px solid rgba(11, 14, 11, 0.534);
   width: 75%;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -457,6 +431,34 @@ th {
   display: none;
 }
 
+/******************/
+/*AGENDADO(DOM)*/
+.show-modal {
+  display: inline-block;
+
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 1.2rem 2.5rem;
+  border-radius: 9px;
+
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  transition: all 0.3s;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
 
 h1 {
   font-size: 2.5rem;
@@ -467,11 +469,74 @@ p {
   font-size: 1.8rem;
 }
 
+/* -------------------------- */
+/* CLASSES TO MAKE MODAL WORK */
 .hidden {
   display: none;
 }
 
+.modal {
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
 
+  background-color: white;
+  padding: 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.575);
+  z-index: 10;
+
+  text-align: center;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  
+}
+
+.modal-header h1{
+  padding-left: 5rem;
+  font-size: 8rem;
+}
+
+.logo-modal2 {
+  height: 9rem;
+}
+
+.btns-modal {
+  display: flex;
+  justify-content: center;
+  gap: 2.2rem;
+}
+
+.form-modal div {
+  margin-bottom: 1.9rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-modal label {
+  font-size: 4rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.form-modal input {
+  border: 3px solid rgba(41, 37, 37, 0.589);
+  /* display: flex;
+  flex-direction: column; 
+  padding: top, right, bottom, left*/
+  font-size: 2rem;
+  width: 80%;
+  padding: 0.5rem;
+  border-radius: 4.5px;
+  background-color: #fff;
+}
 
 .Ddescripcion {
   border: 3px solid rgba(41, 37, 37, 0.589);
@@ -483,6 +548,9 @@ p {
   background-color: #fff;
 }
 
+.div-form-modal input {
+  margin: 0 auto;
+}
 
 /* .overlay {
   position: absolute;
@@ -517,21 +585,6 @@ p {
 }
 
 .btn--form {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-}
-.image-upload input
-{
-    display: none;
-}
-
-#lightTraffic{
-  color: #17ff02;
-}
-
-#mediumTraffic{
-  color: #ff9900;
-}
-#fullTraffic{
-  color: #ff0000;
+  background-color: #000000;
+  color: white;
 }
